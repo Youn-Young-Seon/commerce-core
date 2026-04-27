@@ -1,5 +1,6 @@
 package com.example.commerce.presentation.controller;
 
+import com.example.commerce.application.facade.StockLockFacade;
 import com.example.commerce.application.service.StockService;
 import com.example.commerce.presentation.dto.request.StockCreateRequest;
 import com.example.commerce.presentation.dto.request.StockDecreaseRequest;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StockController {
 
     private final StockService stockService;
+    private final StockLockFacade stockLockFacade;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -35,6 +37,6 @@ public class StockController {
     @PostMapping("/{productId}/decrease")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void decrease(@PathVariable Long productId, @RequestBody StockDecreaseRequest request) {
-        stockService.decrease(productId, request.quantity());
+        stockLockFacade.decrease(productId, request.quantity());
     }
 }
