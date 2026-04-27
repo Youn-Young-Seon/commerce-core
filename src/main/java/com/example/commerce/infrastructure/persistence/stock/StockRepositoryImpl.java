@@ -22,4 +22,9 @@ public class StockRepositoryImpl implements StockRepository {
     public Stock save(Stock stock) {
         return jpaRepository.save(stock);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        jpaRepository.deleteById(id);
+    }
 }
