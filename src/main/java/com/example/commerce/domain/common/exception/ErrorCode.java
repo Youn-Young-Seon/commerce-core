@@ -20,6 +20,7 @@ public enum ErrorCode {
 
     // Point
     INSUFFICIENT_POINT(HttpStatus.CONFLICT, "P001", "포인트가 부족합니다."),
+    POINT_HISTORY_NOT_FOUND(HttpStatus.NOT_FOUND, "P002", "포인트 이력을 찾을 수 없습니다."),
 
     // Order
     ORDER_NOT_FOUND(HttpStatus.NOT_FOUND, "O001", "주문을 찾을 수 없습니다."),
