@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,9 @@ public class Stock {
 
     @Column(nullable = false)
     private int quantity;
+
+    @Version
+    private int version;
 
     public static Stock of(Long productId, int quantity) {
         Stock stock = new Stock();
